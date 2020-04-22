@@ -21,7 +21,7 @@
 
 .searchbar, .filterbox {
     background: white;
-    color: #35BBE5;
+    color: #239cc2;
     border: 0;
     border-radius:8px;
     padding: 5px;
@@ -46,6 +46,16 @@
     border-radius: 8px;
 }
 
+.mobilesort {
+    display: none;
+}
+
+.costmobile, .sellmobile {
+    display:none;
+    background: transparent;
+    font-size: .7em;
+}
+
 .itemstable {
     width: 100%;
     text-align: left;
@@ -64,6 +74,11 @@ tbody td {
     background: transparent;
     color: #239cc2;
     padding: 10px;
+    
+}
+
+tbody td:not(:last-child) {
+    border-right: 2px solid white;
 }
 
 tbody tr:nth-child(even) {
@@ -85,7 +100,65 @@ tr td:last-child {
     text-align: right;
 }
 
+tr td:nth-last-child(2) {
+    text-align: right;
+}
+
+@media (max-width: 576px) {
 /* Can use this for mobile */
-/* table td:nth-of-type(4), th:nth-of-type(4) {
-    display:none;
-} */
+
+    div {
+        font-size: .9em;
+    }
+
+    table td:nth-of-type(1), th:nth-of-type(1) {
+        display:none;
+    }
+    table td:nth-of-type(2), th:nth-of-type(2) {
+        display:none;
+    }
+
+    tr td:last-child {
+        border-radius: 0px;
+    }
+
+    th {
+        display: none;
+    }
+
+    .header {
+        flex-flow: column;
+        margin: 5px auto;
+    }
+
+    .searchbar {
+        width: 100%;
+        margin: 0 auto;
+        border-radius: 0px;
+    }
+
+    .filterbox {
+        margin: 5px auto;
+        border-radius: 0px;
+    }
+
+    .filterpill {
+        padding: 5px;
+        margin: 2px;
+    }
+
+    .mobilesort {
+        display: flex;
+        justify-content: center;
+    }
+
+    .costmobile {
+        display: block;
+        color: red;
+    }
+
+    .sellmobile {
+        display: block;
+        color: green;
+    }
+}
