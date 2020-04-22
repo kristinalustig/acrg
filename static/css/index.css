@@ -1,0 +1,91 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Varela Round', Helvetica, Arial, sans-serif;
+    background:#35BBE5;
+    color: white;
+}
+
+.container {
+    max-width: 800px;
+}
+
+.header {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.searchbar, .filterbox {
+    background: white;
+    color: #35BBE5;
+    border: 0;
+    border-radius:8px;
+    padding: 5px;
+}
+
+.searchbar {
+    flex-grow: 1;
+    margin-left: 20px;
+}
+
+.filterbox {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+
+.filterpill {
+    padding: 5px;
+    background: green;
+    margin: 5px;
+    border-radius: 8px;
+}
+
+.itemstable {
+    width: 100%;
+    text-align: left;
+    border-spacing: 0 5px; 
+}
+
+thead th {
+    padding: 0 10px;
+}
+
+tbody tr {
+    background: #eafaff;
+}
+
+tbody td {
+    background: transparent;
+    color: #239cc2;
+    padding: 10px;
+}
+
+tbody tr:nth-child(even) {
+    background: #edeaff;
+}
+
+tbody tr:nth-child(even) td {
+    color: #2b1d80;
+}
+
+tr td:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+tr td:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    text-align: right;
+}
+
+/* Can use this for mobile */
+/* table td:nth-of-type(4), th:nth-of-type(4) {
+    display:none;
+} */

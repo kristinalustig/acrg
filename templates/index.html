@@ -1,12 +1,68 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Pokedex</title>
+        <title>AC Resource Guide</title>
         <link type="text/css" rel="stylesheet" href="/static/css/index.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
         <script type="text/javascript" src="/static/js/jquery.min.js"></script>
     </head>
     <body>
-        
+
+        <div class="container">
+            <div class="header">
+                <h1>AC Resource Guide</h1>
+                <input class="searchbar" type="search" placeholder="search by name">
+            </div>
+            <div class="filterbox">
+                <div class="filterpill">insects</div>
+                <div class="filterpill">fossils</div>
+                <div class="filterpill">fish</div>
+                <div class="filterpill">clothing</div>
+                <div class="filterpill">recipes</div>
+                <div class="filterpill">plants</div>
+                <div class="filterpill">music</div>
+                <div class="filterpill">decor</div>
+                <div class="filterpill">handheld</div>
+                <div class="filterpill">currency</div>
+                <div class="filterpill">minerals</div>
+                <div class="filterpill">forage</div>
+            </div>
+            <table class="itemstable">
+                <thead>
+                    <tr class="">
+                        <th>type</th>
+                        <th>subtype</th>
+                        <th>name</th>
+                        <th>time of day</th>
+                        <th>time of year</th>
+                        <th>cost</th>
+                        <th>sell</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <!--here's where the rows will go when they are generated but let's make a sample-->
+                    <tr>
+                        <td>Clothing</td>
+                        <td>Shoes</td>
+                        <td>Flower slippers</td>
+                        <td></td>
+                        <td></td>
+                        <td>2000</td>
+                        <td>1500</td>
+                    </tr>
+                    <tr>
+                        <td>Fossil</td>
+                        <td></td>
+                        <td>T-rex tail</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>10000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
         <script type="text/javascript" src="/static/js/index.js"></script>
     </body>
 </html>
