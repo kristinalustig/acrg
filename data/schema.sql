@@ -1,7 +1,7 @@
 CREATE TYPE itemtype AS ENUM ('Music','etc');
 CREATE TYPE subtype AS ENUM ('Flooring', 'etc');
 CREATE TYPE timeofday AS ENUM ('Daytime', 'Afternoon', 'Evening');
-CREATE TYPE month as ENUM ('January', 'etc');
+--CREATE TYPE month as ENUM ('January', 'etc');
 -- CREATE TYPE source AS ENUM ('Nook Store', 'etc');
 
 CREATE TABLE items (
