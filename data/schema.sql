@@ -1,16 +1,16 @@
-CREATE TYPE itemtype AS ENUM ('Music','etc');
-CREATE TYPE subtype AS ENUM ('Flooring', 'etc');
+--CREATE TYPE itemtype AS ENUM ('Clothing','Consumable','Decor','Currency','Fish','Forage','Fossil','Handheld','Insect','Mineral','Music','Award');
 
 CREATE TABLE items (
     id serial PRIMARY KEY,
     name text,
     type itemtype,
-    subtype subtype,
+    subtype text,
     notes text,
     is_recipe boolean,
-    has_reciple boolean,
+    has_recipe boolean,
     sell_price int,
-    cost int
+    cost int,
+    cost_currency text,
     time_start int,
     time_end int,
     months_available text
@@ -23,5 +23,5 @@ CREATE TABLE items_properties (
     value text
 );
 
-
-
+-- DROP TABLE items CASCADE;
+-- DROP TABLE items_properties CASCADE;
