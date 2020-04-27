@@ -1,8 +1,5 @@
 CREATE TYPE itemtype AS ENUM ('Music','etc');
 CREATE TYPE subtype AS ENUM ('Flooring', 'etc');
-CREATE TYPE timeofday AS ENUM ('Daytime', 'Afternoon', 'Evening');
---CREATE TYPE month as ENUM ('January', 'etc');
--- CREATE TYPE source AS ENUM ('Nook Store', 'etc');
 
 CREATE TABLE items (
     id serial PRIMARY KEY,
@@ -10,9 +7,12 @@ CREATE TABLE items (
     type itemtype,
     subtype subtype,
     notes text,
+    is_recipe boolean,
+    has_reciple boolean,
     sell_price int,
     cost int
-    times_available text,
+    time_start int,
+    time_end int,
     months_available text
 );
 

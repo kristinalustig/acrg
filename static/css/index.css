@@ -19,7 +19,7 @@
     width: 100%;
 }
 
-.searchbar, .filterbox {
+.searchbar, .filterbox, .slider {
     background: white;
     color: #239cc2;
     border: 0;

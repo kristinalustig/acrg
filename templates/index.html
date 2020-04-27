@@ -26,9 +26,14 @@
                 <div class="filterpill">currency</div>
                 <div class="filterpill">minerals</div>
                 <div class="filterpill">forage</div>
-                <div class="filterpill">daytime</div>
-                <div class="filterpill">afternoon</div>
-                <div class="filterpill">late night</div>
+                <div class="">
+                    <input type="range" min="0" max="23" class="timeofday slider">
+                    <div class="timeofday_value"></div>
+                </div>
+                <div class="">
+                    <input type="range" min="1" max="12" class="timeofyear slider">
+                    <div class="timeofyear_value"></div>
+                </div>
             </div>
             <div class="mobilesort">
                 <div class="filterpill">Sort by name</div>
