@@ -35,6 +35,10 @@ def items_get():
 
     if len(itemtype) == 0:
         itemtype = tuple(canonical_itemtypes)
+    else:
+        itemtype = tuple(map(lambda x:x.capitalize(), itemtype))
+
+    print(itemtype)
     
     #FILTERING BEGINS HERE
     sqlquery = """
@@ -73,9 +77,9 @@ def items_get():
         sqlquery += """
             AND CASE 
                     WHEN time_start < time_end THEN 
-                        time_start < %s AND time_end > %s
+                        (time_start <= %s AND time_end >= %s)
                     ELSE 
-                        time_start > %s OR %s < time_end
+                        (time_start <= %s OR %s <= time_end)
                 END"""
         paramtuple += (timeofday, timeofday, timeofday,  timeofday)
 
@@ -96,14 +100,14 @@ def items_get():
             sqlquery += """
             ORDER BY name"""
 
-        elif sort_method == 'sell_price':
+        elif sort_method == 'sell':
             sqlquery += """
             ORDER BY sell_price"""
 
         if sort_direction == 'desc':
-            sqlquery += " DESC"
+            sqlquery += " DESC NULLS LAST"
         else:
-            sqlquery += " ASC"
+            sqlquery += " ASC NULLS LAST"
     else:
         sqlquery += """
         ORDER BY id DESC"""
@@ -111,8 +115,10 @@ def items_get():
     # PAGINATION HERE
     sqlquery += """
         OFFSET %s ROWS
-        FETCH FIRST 10 ROW ONLY;"""
-    paramtuple += (int(page)*10,)
+        FETCH FIRST 50 ROW ONLY;"""
+    paramtuple += (int(page)*50,)
+
+    print(sqlquery)
 
     cursor.execute(sqlquery, paramtuple)
     items = cursor.fetchall()

@@ -11,51 +11,53 @@
         <div class="container">
             <div class="header">
                 <h1>AC Resource Guide</h1>
-                <input class="searchbar" type="search" placeholder="search by name">
+                <input class="searchbar js-searchbar" type="search" placeholder="search by name">
             </div>
             <div class="filterbox">
-                <div class="filterpill">insects</div>
-                <div class="filterpill">fossils</div>
-                <div class="filterpill">fish</div>
-                <div class="filterpill">clothing</div>
-                <div class="filterpill">recipes</div>
-                <div class="filterpill">plants</div>
-                <div class="filterpill">music</div>
-                <div class="filterpill">decor</div>
-                <div class="filterpill">handheld</div>
-                <div class="filterpill">currency</div>
-                <div class="filterpill">minerals</div>
-                <div class="filterpill">forage</div>
-                <div class="">
-                    <input type="range" min="0" max="23" class="timeofday slider">
-                    <div class="timeofday_value"></div>
+                <div class="filterpill js-insect insect">insect</div>
+                <div class="filterpill js-fossil fossil">fossil</div>
+                <div class="filterpill js-fish fish">fish</div>
+                <div class="filterpill js-clothing clothing">clothing</div>
+                <div class="filterpill js-consumable consumable">consumable</div>
+                <div class="filterpill js-mineral mineral">mineral</div>
+                <div class="filterpill js-music music">music</div>
+                <div class="filterpill js-decor decor">decor</div>
+                <div class="filterpill js-handheld handheld">handheld</div>
+                <div class="filterpill js-currency currency">currency</div>
+                <div class="filterpill js-award award">award</div>
+                <div class="filterpill js-forage forage">forage</div>
+                <div>
+                    <label for="time" class="filterlabel">Time (0-23):</label>
+                    <input type="number" name="time" class="filterinput js-time" min="0" max="23">
                 </div>
-                <div class="">
-                    <input type="range" min="1" max="12" class="timeofyear slider">
-                    <div class="timeofyear_value"></div>
+                <div>
+                    <label for="number" class="filterlabel">Month (1-12):</label>
+                    <input type="number" name="month" class="filterinput js-month" min="1" max="12">
                 </div>
             </div>
             <div class="mobilesort">
-                <div class="filterpill">Sort by name</div>
-                <div class="filterpill">Sort by cost</div>
-                <div class="filterpill">Sort by sell</div>
+                <div class="filterpill js-name">name</div>
+                <div class="filterpill js-cost">cost</div>
+                <div class="filterpill js-sell">sell</div>
             </div>
             <table class="itemstable">
                 <thead>
-                    <tr class="">
+                    <tr class="titles">
                         <th>type</th>
                         <th>subtype</th>
-                        <th>name</th>
+                        <th class="js-name">name</th>
                         <th>time of day</th>
                         <th>time of year</th>
-                        <th>cost</th>
-                        <th>sell</th>
+                        <th class="js-cost">cost</th>
+                        <th class="js-name">sell</th>
                     </tr>
                 </thead>
-                <tbody class="js-items">
-                <!--here's where the rows will go when they are generated but let's make a sample-->
+                <tbody id="js-items">
                 </tbody>
             </table>
+            <div class="js-morebutton morebutton">
+                <button class='js-more more'>View More</button>
+            </div>
         </div>
 
         <script type="text/javascript" src="/static/js/index.js"></script>
