@@ -77,6 +77,22 @@ tbody td {
     
 }
 
+.months {
+    width: 80px;
+    background: transparent;
+    color: #239cc2;
+}
+
+.is-present, .not-present {
+    font-family: 'Courier New', Courier, monospace;
+    background: transparent;
+    color: #239cc2;
+}
+
+.is-present {
+    font-weight: bolder;
+}
+
 tbody td:not(:last-child) {
     border-right: 2px solid white;
 }
@@ -145,6 +161,12 @@ tr td:nth-last-child(2) {
     .filterpill {
         padding: 5px;
         margin: 2px;
+    }
+
+    .months {
+        width: 60px;
+        background: transparent;
+        color: #239cc2;
     }
 
     .mobilesort {
