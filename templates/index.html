@@ -5,6 +5,7 @@
         <link type="text/css" rel="stylesheet" href="/static/css/index.css" />
         <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
         <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+        <script src="https://kit.fontawesome.com/eb1b9b86ff.js" crossorigin="anonymous"></script>
     </head>
     <body>
 
@@ -36,20 +37,21 @@
                 </div>
             </div>
             <div class="mobilesort">
-                <div class="filterpill js-name">name</div>
-                <div class="filterpill js-cost">cost</div>
-                <div class="filterpill js-sell">sell</div>
+                <div class="filterpill js-name">name<i class="fas fa-sort-up sort-arrows js-name-arrows"></i></div>
+                <div class="filterpill js-cost">cost<i class="fas fa-sort-up sort-arrows js-cost-arrows"></i></div>
+                <div class="filterpill js-sell">sell<i class="fas fa-sort-up sort-arrows js-sell-arrows"></i></div>
             </div>
             <table class="itemstable">
                 <thead>
                     <tr class="titles">
-                        <th>type</th>
-                        <th>subtype</th>
-                        <th class="js-name">name</th>
-                        <th>time of day</th>
-                        <th>time of year</th>
-                        <th class="js-cost">cost</th>
-                        <th class="js-name">sell</th>
+                        <th class="c1"></th>
+                        <th class="c2">type</th>
+                        <th class="c3">subtype</th>
+                        <th class="c4 js-name sort">name<i class="fas fa-sort-up sort-arrows js-name-arrows"></i></th>
+                        <th class="c5">time</th>
+                        <th class="c6">months</th>
+                        <th class="c7 js-cost sort">cost<i class="fas fa-sort-up sort-arrows js-cost-arrows"></i></th>
+                        <th class="c8 js-sell sort">sell<i class="fas fa-sort-up sort-arrows js-sell-arrows"></i></th>
                     </tr>
                 </thead>
                 <tbody id="js-items">

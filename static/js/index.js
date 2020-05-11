@@ -39,8 +39,11 @@ $(document).ready(function() {
     populatePage();
 
     function expandRow() {
-        console.log("it worked");
+        $(this).find('i').toggleClass("fa-caret-right");
+        $(this).find('i').toggleClass("fa-caret-down");
+        $(this).toggleClass("expanded");
         //this will open up the row to show additional information
+        $(this).next(".details").toggle();
     }
 
     function typeChange() {
@@ -110,21 +113,52 @@ $(document).ready(function() {
                 if (loadMore == false) {
                     targetLocation.empty();
                 }
+
+                if (sortMethod != null) {
+                    var imgTarget = `.js-${sortMethod}-arrows`;
+                    $(".sort-arrows").removeClass("fa-sort-up");
+                    $(".sort-arrows").removeClass("fa-sort-down");
+                    $(".sort-arrows").addClass("fa-sort-up");
+                    if (sortDir == 'asc') {
+                        $(`${imgTarget}`).removeClass("fa-sort-up");
+                        $(`${imgTarget}`).addClass("fa-sort-down");
+                    }
+                }
+                var colorPicker = 0;
                 for (var i = 0; i < data.length; i++) {
                     var item = data[i];
                     //don't forget to add in images for currency
+                    if (colorPicker % 2 == 0) {
+                        var rowClass = "purple-row";
+                    } else {
+                        var rowClass = "blue-row";
+                    }
                     var itemrow = `
-                        <tr id="${item['id']}">
-                            <td>${item['type']}</td>
-                            <td>${item['subtype']}</td>
-                            <td>${item['name']}</td>
-                            <td>${item['time_start']} - ${item['time_end']}</td>
-                            <td>${item['months_available']}</td>
-                            <td><span class="costmobile">COST</span>${item['cost']}</td>
-                            <td><span class="sellmobile">SELL</span>${item['sell_price']}</td>
+                        <tr id="${item['id']}" class="${rowClass}">
+                            <td class="c1"><i></i></td>
+                            <td class="c2">${item['type']}</td>
+                            <td class="c3">${item['subtype']}</td>
+                            <td class="c4">${item['name']}</td>
+                            <td class="c5">${item['time_start']} - ${item['time_end']}</td>
+                            <td class="c6">${item['months_available']}</td>
+                            <td class="c7"><span class="costmobile">COST</span>${item['cost']}</td>
+                            <td class="c8"><span class="sellmobile">SELL</span>${item['sell_price']}</td>
                         </tr>`;
+                    if (item['notes'] != null) {
+                        itemrow += `<tr class="details ${rowClass}">
+                        <td class="details-cell" colspan="8">${item['notes']}</td>
+                        </tr>`;
+                    }
+                    colorPicker += 1;
                     targetLocation.append(itemrow);
-                    $(`#${item['id']}`).click(expandRow);
+                    if (item['notes'] != null) {
+
+                        $(`#${item['id']}`).children('td').first().find('i')
+                            .addClass("fas")
+                            .addClass("fa-caret-right");
+                        $(`#${item['id']}`).addClass('clickable');
+                        $(`#${item['id']}`).click(expandRow);
+                    }
                     loadMore = false;
                 }
             }

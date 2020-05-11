@@ -20,7 +20,7 @@ input[type=number] {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 860px;
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -65,7 +65,20 @@ input[type=number] {
     margin: 5px;
     border-radius: 8px;
     color: white;
+}
+
+.filterpill * {
+    background: transparent;
+    height: 8px;
+    margin-left: 5px;
+}
+
+.filterbox .filterpill {
     opacity: .5;
+}
+
+.filterpill:hover {
+    cursor: pointer;
 }
 
 .selected {
@@ -87,10 +100,71 @@ input[type=number] {
     font-size: .7em;
 }
 
+/* TABLE CSS */
 .itemstable {
+    border: 1px solid #35BBE5;
     width: 100%;
     text-align: left;
-    border-spacing: 0 5px; 
+    vertical-align: middle;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+    table-layout: fixed;
+}
+
+.c1 {
+    width: 5%;
+}
+
+.c2, .c3 {
+    width: 12%;
+}
+
+.c4 {
+    width: 23%;
+}
+
+.c5 {
+    width: 14%;
+}
+
+.c6 {
+    width: 14%;
+}
+
+.c7, .c8 {
+    width: 10%;
+}
+
+.sort:hover {
+    cursor: pointer;
+}
+
+.fas {
+    background: inherit;
+    color: inherit;
+}
+
+.fa-sort-up, .fa-sort-down {
+    margin-left: 10px;
+}
+
+.details {
+    display: none;
+    background: inherit;
+    margin-top: 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.details-cell {
+    text-align: center!important;
+    border-top: 1px solid white;
+}
+
+.expanded {
+    margin-bottom: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 .titles {
@@ -98,18 +172,28 @@ input[type=number] {
 }
 
 thead th {
-    padding: 0 10px;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    text-align: center;
+    overflow: hidden;
+}
+
+tbody, thead, tr {
+    display: inline-table;
+    width: 100%;
+    margin-bottom: 5px;
 }
 
 tbody tr {
     background: #eafaff;
+    border-radius: 8px;
 }
 
 tbody td {
     background: transparent;
     color: #239cc2;
-    padding: 10px;
-    
+    padding: 10px; 
+    overflow: hidden; 
 }
 
 .months {
@@ -128,21 +212,29 @@ tbody td {
     font-weight: bolder;
 }
 
-tbody td:not(:last-child) {
+td:not(:last-child) {
     border-right: 2px solid white;
 }
 
-tbody tr:nth-child(even) {
-    background: #edeaff;
+.purple-row {
+    background: #EDEAFF;
 }
 
-tbody tr:nth-child(even) td {
+.purple-row td {
     color: #2b1d80;
+}
+
+.clickable {
+    cursor: pointer;
 }
 
 tr td:first-child {
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
+}
+
+tr th:first-child {
+    border-right: 0px;
 }
 
 tr td:last-child {
@@ -169,17 +261,17 @@ tr td:nth-last-child(2) {
     border-radius: 8px;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 760px) {
 /* Can use this for mobile */
 
     div {
         font-size: .9em;
     }
 
-    table td:nth-of-type(1), th:nth-of-type(1) {
+    table td:nth-of-type(2), th:nth-of-type(2) {
         display:none;
     }
-    table td:nth-of-type(2), th:nth-of-type(2) {
+    table td:nth-of-type(3), th:nth-of-type(3) {
         display:none;
     }
 
