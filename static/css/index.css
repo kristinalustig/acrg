@@ -28,13 +28,13 @@ input[type=number] {
 
 .header {
     display: flex;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 12px;
+    margin-bottom: 12px;
     justify-content: space-between;
     width: 100%;
 }
 
-.searchbar, .filterbox, .slider {
+.searchbar, .filterbox{
     background: white;
     color: #239cc2;
     border: 0;
@@ -42,16 +42,33 @@ input[type=number] {
     padding: 5px;
 }
 
+.submit-button {
+    background: #CE4285;
+    color: white;
+    margin-left: 20px;
+    border-radius: 8px;
+    border: none;
+    padding: 10px;
+    font-size: inherit;
+    outline: 0;
+    text-decoration: none;
+}
+
+.submit-button:focus {
+    opacity: .75;
+}
+
 .searchbar {
     flex-grow: 1;
     margin-left: 20px;
+    font-size: inherit;
 }
 
 .filterbox {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
 }
 
 .filterbox * {
@@ -145,6 +162,7 @@ input[type=number] {
     margin-top: 0px;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
+
 }
 
 .blue-row {
@@ -154,6 +172,7 @@ input[type=number] {
 .details-cell {
     text-align: center!important;
     border-top: 1px solid white;
+    padding: 5px;
 }
 
 .expanded {
@@ -259,7 +278,7 @@ tr td:nth-last-child(2) {
     border-radius: 8px;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 800px) {
 /* Can use this for mobile */
 
     div {
@@ -297,19 +316,33 @@ tr td:nth-last-child(2) {
         border-radius: 0px!important;
     }
 
-    th {
+    th, thead {
         display: none;
     }
    
     .header {
-        flex-flow: column;
+        flex-flow: row wrap;
         margin: 5px auto;
+        align-items: center;
+        justify-content: space-around;    
+    }
+
+    .header h1 {
+        order: 1;
+        min-width: 40%;
     }
 
     .searchbar {
         width: 100%;
         margin: 0 auto;
         border-radius: 0px;
+        order: 3;
+    }
+
+    .submit-button {
+        margin: 5px auto;
+        order: 2;
+        min-width: 40%;
     }
 
     .filterbox {
@@ -332,6 +365,8 @@ tr td:nth-last-child(2) {
     .mobilesort {
         display: flex;
         justify-content: center;
+        margin-bottom: 12px;
+        margin-top: 6px;
     }
 
     .costmobile {

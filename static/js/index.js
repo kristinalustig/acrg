@@ -104,6 +104,7 @@ $(document).ready(function() {
                 "page": page
             },
             success: function(data) {
+
                 if (data.length < 50) {
                     $(".js-more").css("display","none");
                 } else {

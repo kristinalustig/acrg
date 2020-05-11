@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Varela Round', Helvetica, Arial, sans-serif;
+    background:#35BBE5;
+    color: white;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.container {
+    max-width: 600px;
+    display: flex;
+    flex-flow: column;
+    margin: 0 auto;
+}
+
+.header {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    width: 100%;
+}
+
+input, textarea {
+    background: white;
+    color: #239cc2;
+    border: 0;
+    border-radius:8px;
+    padding: 5px;
+}
+
+textarea {
+    width: 50%;
+    height: 100px;
+    font-size: inherit;
+}
+
+form > div {
+    margin: 10px 0;
+}
+
+label {
+    margin-bottom: 2px;
+    margin-right: 24px;
+}
+
+input {
+    margin-right: 4px;
+}
+
+#item-name {
+    width: 50%;
+}
+
+.time {
+    width: 40px;
+}
+
+.formgroup {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+}
+
+.horizontal-groups {
+    display: flex;
+    width: 100%;
+}
+
+.vert {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+a {
+    text-decoration: none;
+
+}
+
+.mono div *{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.m-label {
+    margin-bottom: 8px;
+}
+
+.submit-button {
+    background: #CE4285;
+    color: white;
+    margin-top: 20px;
+    border-radius: 8px;
+    border: none;
+    padding: 10px;
+    font-size: inherit;
+    outline: 0;
+    text-decoration: none;
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.submit-button:focus {
+    opacity: .75;
+}
+
+input[type=checkbox] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    outline: 0;
+    margin-bottom: 10px;
+}
+
+input[type=checkbox]:focus {
+    border: 2px solid white;
+    background-color: rgb(252, 204, 227);
+}
+
+input[type=checkbox]:checked {
+    border: 2px solid white;
+    background-color: #CE4285;
+}
+
+input[type=text], input[type=number], input[type="select"] {
+    height: 30px;
+    font-size: inherit;
+}
+
+@media (max-width: 600px) {
+    .horizontal-groups {
+        flex-direction: column;
+        
+    }
+
+    .cbox {
+        flex-direction: row;
+    }
+    
+    #item-name, #item-notes {
+        width: 100%;
+    }
+
+    input {
+        margin-bottom: 0;
+    }
+
+    .container {
+        margin: 0 auto;
+        width: 90%;
+    }
+
+    .vert {
+        margin-top: 8px;
+    }
+}

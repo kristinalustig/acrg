@@ -16,6 +16,10 @@ months = ["J","F","M","A","M","J","J","A","S","O","N","D"]
 def index():
     return render_template('index.html')
 
+@app.route('/submit')
+def submitpage():
+    return render_template('submit.html')
+
 @app.route('/api/items', methods=['GET'])
 def items_get():
     global canonical_itemtypes
@@ -159,10 +163,22 @@ def items_get():
 
     return jsonify(items_to_return), 200
 
-@app.route('/api/items/<int:id>', methods=['GET'])
-def item_get_by_id():
-    #this will load the details expansion
-    return jsonify(item_details), 200
+
+@app.route('/api/items', methods=['POST'])
+def items_post():
+
+    cursor = c.cursor()
+    acdata = json.loads(request.data)
+    
+    # need to validate the data here
+
+    # if the data isn't valid, need to return info about the error and display it at the top of the page
+
+    # need to put this data into an interim table for checking and confirming
+    
+    return "Ok!", 201
+
+
 
 @app.route('/initialize')
 def initialize_db():

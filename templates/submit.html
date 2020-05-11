@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AC Resource Guide - Submit New Item</title>
+        <link type="text/css" rel="stylesheet" href="/static/css/submit.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+        <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+        <script src="https://kit.fontawesome.com/eb1b9b86ff.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="header">
+                <h1>AC Resource Guide</h1>
+                <h2>Submit New Item</h2>
+                
+            </div>
+            <form id="submit-item" class="formgroup">
+                <div class="vert">
+                    <label for="item-name" class="">Name</label>
+                    <input type="text" class="" placeholder="Item name as written in game" id="item-name">
+                </div>
+                <div class="horizontal-groups">
+                    <div class="vert">
+                        <label for="item-type" class="">Type</label>
+                        <input type="select" class="" placeholder="---" id="item-type">
+                    </div>
+                    <div class="vert">
+                        <label for="item-subtype" class="">Subtype</label>
+                        <input type="select" class="" placeholder="---" id="item-subtype">
+                    </div>
+                    <div class="vert">
+                        <label for="item-source" class="">Source</label>
+                        <input type="select" class="" placeholder="---" id="item-source">
+                    </div>
+                </div>
+                <div class="horizontal-groups">
+                    <div class="vert">
+                        <label for="item-cost" class="">Cost</label>
+                        <input type="number" class="" placeholder="---" id="item-cost">
+                    </div>
+                    <div class="vert">
+                        <label for="item-sell" class="">Sell</label>
+                        <input type="number" class="" placeholder="---" id="item-sell">
+                    </div>
+                </div>
+                <div class="vert">
+                    <label for="item-time-start" class="">Times available (24 hr time):</label>
+                    <div>
+                        <input type="number" class="time" id="item-time-start" placeholder="0">to 
+                        <input type="number" class="time" id="item-time-end" placeholder="24">
+                    </div>
+                </div>
+                <div class="vert mono js-months">
+                    <p class="m-label">Months available:</p>
+                    <div class="horizontal-groups cbox">
+                        <input type="checkbox" id="item-jan">
+                        <label for="item-jan" class="">JAN</label>
+                        <input type="checkbox" id="item-feb">
+                        <label for="item-feb" class="">FEB</label>
+                        <input type="checkbox" id="item-mar">
+                        <label for="item-mar" class="">MAR</label>
+                        <input type="checkbox" id="item-apr">
+                        <label for="item-apr" class="">APR</label>
+                    </div>
+                    <div class="horizontal-groups cbox">
+                        <input type="checkbox" id="item-may">
+                        <label for="item-may" class="">MAY</label>
+                        <input type="checkbox" id="item-jun">
+                        <label for="item-jun" class="">JUN</label>
+                        <input type="checkbox" id="item-jul">
+                        <label for="item-jul" class="">JUL</label>
+                        <input type="checkbox" id="item-aug">
+                        <label for="item-aug" class="">AUG</label>
+                    </div>
+                    <div class="horizontal-groups cbox">
+                        <input type="checkbox" id="item-sep">
+                        <label for="item-sep" class="">SEP</label>
+                        <input type="checkbox" id="item-oct">
+                        <label for="item-oct" class="">OCT</label>
+                        <input type="checkbox" id="item-nov">
+                        <label for="item-nov" class="">NOV</label>
+                        <input type="checkbox" id="item-dec">
+                        <label for="item-dec" class="">DEC</label>
+                    </div>   
+                </div>
+                <div class="vert">
+                    <label for="item-notes" class="">Any additional notes to include in the description?</label>
+                    <textarea id="item-notes" placeholder="e.g., Only available during Bunny Day."></textarea>
+                </div>
+                <input type="submit" name="Submit" class="submit-button js-submit">
+            </form>
+            <a href="/"><i class="fas fa-arrow-circle-left"></i> Go Back</a>
+        </div>
+
+        <script type="text/javascript" src="/static/js/submit.js"></script>
+    </body>
+</html>
