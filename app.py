@@ -117,9 +117,6 @@ def items_get():
         OFFSET %s ROWS
         FETCH FIRST 50 ROW ONLY;"""
     paramtuple += (int(page)*50,)
-
-    print(sqlquery)
-
     cursor.execute(sqlquery, paramtuple)
     items = cursor.fetchall()
     c.commit()

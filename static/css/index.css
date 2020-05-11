@@ -20,7 +20,7 @@ input[type=number] {
 }
 
 .container {
-    max-width: 860px;
+    max-width: 800px;
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -65,6 +65,7 @@ input[type=number] {
     margin: 5px;
     border-radius: 8px;
     color: white;
+    max-height: 30px;
 }
 
 .filterpill * {
@@ -102,7 +103,6 @@ input[type=number] {
 
 /* TABLE CSS */
 .itemstable {
-    border: 1px solid #35BBE5;
     width: 100%;
     text-align: left;
     vertical-align: middle;
@@ -112,26 +112,18 @@ input[type=number] {
 }
 
 .c1 {
-    width: 5%;
+    width: 6%;
 }
 
-.c2, .c3 {
+.c2, .c3, .c5 {
     width: 12%;
 }
 
 .c4 {
-    width: 23%;
+    width: 28%;
 }
 
-.c5 {
-    width: 14%;
-}
-
-.c6 {
-    width: 14%;
-}
-
-.c7, .c8 {
+.c6, .c7, .c8 {
     width: 10%;
 }
 
@@ -150,10 +142,13 @@ input[type=number] {
 
 .details {
     display: none;
-    background: inherit;
     margin-top: 0px;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
+}
+
+.blue-row {
+    background: #eafaff;
 }
 
 .details-cell {
@@ -172,7 +167,7 @@ input[type=number] {
 }
 
 thead th {
-    padding: 5px 10px;
+    padding: 0px 10px;
     margin-bottom: 5px;
     text-align: center;
     overflow: hidden;
@@ -187,13 +182,14 @@ tbody, thead, tr {
 tbody tr {
     background: #eafaff;
     border-radius: 8px;
+    table-layout: fixed;
 }
 
 tbody td {
     background: transparent;
     color: #239cc2;
-    padding: 10px; 
     overflow: hidden; 
+    text-align: center;
 }
 
 .months {
@@ -241,10 +237,12 @@ tr td:last-child {
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     text-align: right;
+    padding-right: 5px; 
 }
 
 tr td:nth-last-child(2) {
     text-align: right;
+    padding-right: 5px; 
 }
 
 .morebutton {
@@ -267,22 +265,42 @@ tr td:nth-last-child(2) {
     div {
         font-size: .9em;
     }
-
-    table td:nth-of-type(2), th:nth-of-type(2) {
-        display:none;
-    }
-    table td:nth-of-type(3), th:nth-of-type(3) {
-        display:none;
+    
+    .c5, .c7, .c8 {
+        width: 12%;
     }
 
-    tr td:last-child {
-        border-radius: 0px;
+    .c6 {
+        width: 14%;
+    }
+
+    .c5, .c7, .c8 {
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    table td:nth-of-type(1){
+        display:none;
+    }
+    table td:nth-of-type(2){
+        display:none;
+    }
+    table td:nth-of-type(3){
+        display:none;
+    }
+
+    table td:last-child, table td:nth-last-child(2) {
+        text-align: center;
+    }
+
+    tr {
+        border-radius: 0px!important;
     }
 
     th {
         display: none;
     }
-
+   
     .header {
         flex-flow: column;
         margin: 5px auto;
@@ -302,6 +320,7 @@ tr td:nth-last-child(2) {
     .filterpill {
         padding: 5px;
         margin: 2px;
+        max-height: 24px;
     }
 
     .months {
