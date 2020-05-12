@@ -7,14 +7,33 @@ $(document).ready(function() {
         var hasMonths = false;
         var errorOut = false;
         var errorMessages = "";
+        var isRecipe = false;
+        var isCraftable = false;
+        var itemMonths = [];
+        var months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
 
-        itemMonths = [];
+
+        if ($("#item-is-recipe").prop('checked')) {
+            isRecipe = true;
+        }
+
+        if ($("#item-has-recipe").prop('checked')) {
+            isCraftable = true;
+        }
+
         $("input:checkbox").each(function() {
-            if ($(this).prop("checked") == true) {
-                itemMonths.push($(this).next().text());
-                hasMonths = true;
+            var nextMonth = $(this).next().text();
+            if (months.indexOf(nextMonth) >= 0) {
+                if ($(this).prop("checked") == true) {
+                    itemMonths.unshift(1);
+                    hasMonths = true;
+                } else {
+                    itemMonths.unshift(0);
+                }
             }
         });
+        itemMonths.join("");
+        itemMonths = parseInt(itemMonths.join(""),2);
 
         if (hasMonths != true) {
             errorOut = true;
@@ -45,7 +64,7 @@ $(document).ready(function() {
             errorMessages += "<div class='individual-error'>Please enter an end time. If your item is available all day, enter 0 to 24.</div>";
         }
 
-        if (errorOut = true) {
+        if (errorOut == true) {
             $(".errors").show();
             $(".errors").append(errorMessages);
         } else {
@@ -56,9 +75,12 @@ $(document).ready(function() {
                 "notes": $("#item-notes").val(),
                 "sell_price": $("#item-sell").val(),
                 "cost": $("#item-cost").val(),
+                "cost_currency": $("#item-cost-currency").val(),
                 "time_start": $("#item-time-start").val(),
                 "time_end": $("#item-time-end").val(),
-                "months_available": itemMonths
+                "months_available": itemMonths,
+                "is_recipe": isRecipe,
+                "has_recipe": isCraftable
             };
 
             $.ajax({
@@ -69,9 +91,9 @@ $(document).ready(function() {
                 success: function(data) {
                     window.location.href="/success";
                 },
-                error: function() {
+                error: function(data) {
                     $(".errors").show();
-                    $(".errors").append("<div class='individual-error'>Apologies, there seems to be an error submitting. Please try again.</div>");
+                    $(".errors").append(`<div class='individual-error'>Error: ${data['message']}</div>`);
                 } 
             });
         }

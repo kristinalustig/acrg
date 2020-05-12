@@ -167,23 +167,22 @@ def items_get():
 
     return jsonify(items_to_return), 200
 
-
 @app.route('/api/items', methods=['POST'])
 def items_post():
+    global canonical_itemtypes
 
     cursor = c.cursor()
-    acdata = json.loads(request.data)
+    item = json.loads(request.data)
     
-    # need to validate the data here
-    #
-
-    # if the data isn't valid, need to return info about the error and display it at the top of the page
-
-    # need to put this data into an interim table for checking and confirming
+    cursor.execute("""
+            INSERT INTO
+                items_interim (name, type, subtype, notes, is_recipe, has_recipe, sell_price, cost, cost_currency, time_start, time_end, months_available)
+            VALUES
+                (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        """, (item['name'], item['type'], item['subtype'], item['notes'], item['is_recipe'], item['has_recipe'], item['sell_price'], item['cost'],item['cost_currency'], item['time_start'], item['time_end'], item['months_available']))
+    c.commit()
     
     return "Ok!", 201
-
-
 
 @app.route('/initialize')
 def initialize_db():
