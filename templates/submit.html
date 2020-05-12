@@ -13,8 +13,8 @@
             <div class="header">
                 <h1>AC Resource Guide</h1>
                 <h2>Submit New Item</h2>
-                
             </div>
+            <div class="errors">Please fix the following errors before submitting:</div>
             <form id="submit-item" class="formgroup">
                 <div class="vert">
                     <label for="item-name" class="">Name</label>
@@ -23,18 +23,67 @@
                 <div class="horizontal-groups">
                     <div class="vert">
                         <label for="item-type" class="">Type</label>
-                        <input type="select" class="" placeholder="---" id="item-type">
+                        <select id="item-type">
+                            <option value="">---</option>
+                            <option value="Clothing">Clothing</option>
+                            <option value="Consumable">Consumable</option>
+                            <option value="Decor">Decor</option>
+                            <option value="Currency">Currency</option>
+                            <option value="Fish">Fish</option>
+                            <option value="Forage">Forage</option>
+                            <option value="Fossil">Fossil</option>
+                            <option value="Handheld">Handheld</option>
+                            <option value="Insect">Insect</option>
+                            <option value="Mineral">Mineral</option>
+                            <option value="Music">Music</option>
+                            <option value="Award">Award</option>
+                        </select>
                     </div>
                     <div class="vert">
                         <label for="item-subtype" class="">Subtype</label>
-                        <input type="select" class="" placeholder="---" id="item-subtype">
+                        <select id="item-subtype">
+                            <option value="">---</option>
+                            <option value="Furniture">Furniture</option>
+                            <option value="Floor">Floor</option>
+                            <option value="Wallpaper">Wallpaper</option>
+                            <option value="Rug">Rug</option>
+                            <option value="Houseware">Houseware</option>
+                            <option value="Fencing">Fencing</option>
+                            <option value="Top">Top</option>
+                            <option value="Bottom">Bottom</option>
+                            <option value="Dress">Dress</option>
+                            <option value="Headwear">Headwear</option>
+                            <option value="Accessories">Accessories</option>
+                            <option value="Socks">Socks</option>
+                            <option value="Shoes">Shoes</option>
+                            <option value="Bags">Bags</option>
+                            <option value="Tool">Tool</option>
+                            <option value="Decorative">Decorative</option>
+                            <option value="Flower">Flower</option>
+                            <option value="Mineral">Mineral</option>
+                            <option value="Fruit">Fruit</option>
+                            <option value="Plant">Plant</option>
+                            <option value="Shell">Shell</option>
+                            <option value="Trash">Trash</option>
+                            <option value="Star">Star</option>
+                            <option value="Plant">Plant</option>
+                            <option value="Miscellaneous">Miscellaneous</option>
+                            <option value="Pier">Pier</option>
+                            <option value="Pond">Pond</option>
+                            <option value="River">River</option>
+                            <option value="Sapling">Sapling</option>
+                            <option value="Sea">Sea</option>
+                            <option value="Seasonal">Seasonal</option>
+                            <option value="Seeds">Seeds</option>
+                            <option value="Wall-mounted">Wall-mounted</option>
+                        </select>
                     </div>
                     <div class="vert">
                         <label for="item-source" class="">Source</label>
-                        <input type="select" class="" placeholder="---" id="item-source">
+                        <input type="text" class="" placeholder="e.g. Nook Shop" id="item-source">
                     </div>
                 </div>
-                <div class="horizontal-groups">
+                <div class="horizontal-groups money">
                     <div class="vert">
                         <label for="item-cost" class="">Cost</label>
                         <input type="number" class="" placeholder="---" id="item-cost">
@@ -43,12 +92,12 @@
                         <label for="item-sell" class="">Sell</label>
                         <input type="number" class="" placeholder="---" id="item-sell">
                     </div>
-                </div>
-                <div class="vert">
-                    <label for="item-time-start" class="">Times available (24 hr time):</label>
-                    <div>
-                        <input type="number" class="time" id="item-time-start" placeholder="0">to 
-                        <input type="number" class="time" id="item-time-end" placeholder="24">
+                    <div class="vert">
+                        <label for="item-time-start" class="">Times available (24 hr time):</label>
+                        <div>
+                            <input type="number" class="time" id="item-time-start" placeholder="0">to 
+                            <input type="number" class="time" id="item-time-end" placeholder="24">
+                        </div>
                     </div>
                 </div>
                 <div class="vert mono js-months">

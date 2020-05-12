@@ -3,39 +3,78 @@ $(document).ready(function() {
     $(".js-submit").click(function(event) {
         event.preventDefault();
 
+        $(".errors").hide();
+        var hasMonths = false;
+        var errorOut = false;
+        var errorMessages = "";
+
         itemMonths = [];
         $("input:checkbox").each(function() {
             if ($(this).prop("checked") == true) {
                 itemMonths.push($(this).next().text());
+                hasMonths = true;
             }
         });
 
-        itemForm = {
-            "name": $("#item-name").val(),
-            "type": $("#item-type").val(),
-            "subtype": $("#item-subtype").val(),
-            "notes": $("#item-notes").val(),
-            "sell_price": $("#item-sell").val(),
-            "cost": $("#item-cost").val(),
-            "time_start": $("#item-time-start").val(),
-            "time_end": $("#item-time-end").val(),
-            "months_available": itemMonths
-        };
+        if (hasMonths != true) {
+            errorOut = true;
+            errorMessages += "<div class='individual-error'>Please select one or more months that this item is available.</div>";
+        }
+        if ($("#item-name").val().length == 0) {
+            errorOut = true;
+            errorMessages += "<div class='individual-error'>Your item must have a name.</div>";
+        }
 
-        //should add in basic client-side validation here? only re: the format.
+        if ($("#item-type").val().length == 0) {
+            errorOut = true;
+            errorMessages += "<div class='individual-error'>Please select a type for your item. If unsure, make your best guess.</div>";
+        }
 
-        console.log(itemForm);
+        if ($("#item-subtype").val().length == 0) {
+            errorOut = true;
+            errorMessages += "<div class='individual-error'>Please select a subtype for your item. If unsure, make your best guess.</div>";
+        }
 
-        $.ajax({
-            method: "POST",
-            url: "/api/items",
-            data: JSON.stringify(itemForm),
-            contentType: "application/json",
-            success: function(data) {
-                window.location.href="/success";
-            }
-        });
+        if ($("#item-time-start").val().length == 0) {
+            errorOut = true;
+            errorMessages += "<div class='individual-error'>Please enter a start time. If your item is available all day, enter 0 to 24.</div>";
+        }
 
+        if ($("#item-time-end").val().length == 0) {
+            errorOut = true;
+            errorMessages += "<div class='individual-error'>Please enter an end time. If your item is available all day, enter 0 to 24.</div>";
+        }
+
+        if (errorOut = true) {
+            $(".errors").show();
+            $(".errors").append(errorMessages);
+        } else {
+            itemForm = {
+                "name": $("#item-name").val(),
+                "type": $("#item-type").val(),
+                "subtype": $("#item-subtype").val(),
+                "notes": $("#item-notes").val(),
+                "sell_price": $("#item-sell").val(),
+                "cost": $("#item-cost").val(),
+                "time_start": $("#item-time-start").val(),
+                "time_end": $("#item-time-end").val(),
+                "months_available": itemMonths
+            };
+
+            $.ajax({
+                method: "POST",
+                url: "/api/items",
+                data: JSON.stringify(itemForm),
+                contentType: "application/json",
+                success: function(data) {
+                    window.location.href="/success";
+                },
+                error: function() {
+                    $(".errors").show();
+                    $(".errors").append("<div class='individual-error'>Apologies, there seems to be an error submitting. Please try again.</div>");
+                } 
+            });
+        }
     });
 
 })

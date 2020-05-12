@@ -20,6 +20,10 @@ def index():
 def submitpage():
     return render_template('submit.html')
 
+@app.route('/success')
+def successpage():
+    return render_template('success.html')
+
 @app.route('/api/items', methods=['GET'])
 def items_get():
     global canonical_itemtypes
@@ -171,6 +175,7 @@ def items_post():
     acdata = json.loads(request.data)
     
     # need to validate the data here
+    #
 
     # if the data isn't valid, need to return info about the error and display it at the top of the page
 

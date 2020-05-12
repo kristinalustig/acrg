@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Varela Round', Helvetica, Arial, sans-serif;
+    background:#35BBE5;
+    color: white;
+}
+
+.container {
+    max-width: 600px;
+    display: flex;
+    flex-flow: column;
+    margin: 0 auto;
+}
+
+.header, .message {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    width: 100%;
+}
+
+.submitagain, .gohome {
+    color: white;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+    padding: 10px;
+    font-size: inherit;
+    outline: 0;
+    text-decoration: none;
+    width: 200px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.submitagain {
+    background: #CE4285;
+}
+
+.gohome {
+    background: rgb(48, 157, 91);
+}

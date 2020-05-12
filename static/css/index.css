@@ -85,6 +85,54 @@ input[type=number] {
     max-height: 30px;
 }
 
+.insect {
+    background: rgb(29, 164, 155);
+}
+
+.fossil {
+    background: rgb(136, 30, 186);
+}
+
+.fish {
+    background: rgb(30, 91, 182);
+}
+
+.clothing {
+    background: rgb(181, 28, 158);
+}
+
+.consumable {
+    background: rgb(143, 172, 25);
+}
+
+.mineral {
+    background: rgb(174, 123, 22);
+}
+
+.music {
+    background: rgb(23, 172, 100);
+}
+
+.decor {
+    background: rgb(22, 125, 169);
+}
+
+.handheld {
+    background: rgb(166, 19, 169);
+}
+
+.currency {
+    background: rgb(103, 167, 20);
+}
+
+.award {
+    background: rgb(164, 149, 21);
+}
+
+.forage {
+    background: rgb(19, 157, 99);
+}
+
 .filterpill * {
     background: transparent;
     height: 8px;
@@ -92,7 +140,7 @@ input[type=number] {
 }
 
 .filterbox .filterpill {
-    opacity: .5;
+    opacity: .4;
 }
 
 .filterpill:hover {
@@ -343,6 +391,7 @@ tr td:nth-last-child(2) {
         margin: 5px auto;
         order: 2;
         min-width: 40%;
+        text-align: center;
     }
 
     .filterbox {
